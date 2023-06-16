@@ -29,7 +29,8 @@ class ScanUtil {
             while (enumeration.hasMoreElements()) {
                 JarEntry jarEntry = (JarEntry) enumeration.nextElement()
                 String entryName = jarEntry.getName()
-                if (entryName.startsWith(ScanSetting.ROUTER_CLASS_PACKAGE_NAME)) {
+                if (entryName.startsWith(ScanSetting.ROUTER_CLASS_PACKAGE_NAME) && entryName.endsWith(".class")) {
+                    println("jar entryName = " + entryName)
                     InputStream inputStream = file.getInputStream(jarEntry)
                     scanClass(inputStream)
                     inputStream.close()
@@ -48,7 +49,8 @@ class ScanUtil {
     }
 
     static boolean shouldProcessClass(String entryName) {
-        return entryName != null && entryName.startsWith(ScanSetting.ROUTER_CLASS_PACKAGE_NAME)
+        return entryName != null && entryName.startsWith(ScanSetting.ROUTER_CLASS_PACKAGE_NAME
+                && entryName.endsWith(".class"))
     }
 
     /**
