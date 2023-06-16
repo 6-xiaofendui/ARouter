@@ -49,8 +49,8 @@ class ScanUtil {
     }
 
     static boolean shouldProcessClass(String entryName) {
-        return entryName != null && entryName.startsWith(ScanSetting.ROUTER_CLASS_PACKAGE_NAME
-                && entryName.endsWith(".class"))
+        return entryName != null && entryName.startsWith(ScanSetting.ROUTER_CLASS_PACKAGE_NAME)
+                && entryName.endsWith(".class")
     }
 
     /**
