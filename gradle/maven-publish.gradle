@@ -25,7 +25,9 @@ afterEvaluate { project ->
                 version = VERSION_NAME
                 afterEvaluate {
                     if (plugins.hasPlugin('com.android.application') || plugins.hasPlugin('com.android.library')) {
-                        from components.release
+                        if (components.contains('release')) {
+                            from components.release
+                        }
                     } else if (plugins.hasPlugin("java")) {
                         from components.java
                     }

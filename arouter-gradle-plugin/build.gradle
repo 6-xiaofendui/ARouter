@@ -1,17 +1,23 @@
 plugins {
     id 'groovy'
     id 'maven-publish'
+    id 'org.jetbrains.kotlin.jvm'
+    id 'kotlin'
 }
 
 dependencies {
     implementation gradleApi()
     implementation localGroovy()
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
 
 dependencies {
-    implementation 'com.android.tools.build:gradle:7.3.0'
+    implementation 'com.android.tools.build:gradle:8.1.0'
     implementation 'commons-codec:commons-codec:1.15'
     implementation 'commons-io:commons-io:2.11.0'
 }
 
 apply from: rootProject.file('gradle/maven-publish.gradle')
+//repositories {
+//    mavenCentral()
+//}
